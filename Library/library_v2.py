@@ -1,6 +1,6 @@
 import pymysql
 
-connection = pymysql.connect(host='localhost', port=3306, user='root', password='asd851216', database='libary')
+connection = pymysql.connect(host='localhost', port=3306, user='root', password='******', database='libary')
 cursor = connection.cursor()
 cursor.execute("DROP TABLE IF EXISTS books")
 try:
@@ -63,7 +63,7 @@ class BookManager:
         self.books.append(book10)
         self.books.append(book11)
     def check_book(self):
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='asd851216', database='libary')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='******', database='libary')
         cursor = connection.cursor()
 
         try:
@@ -81,7 +81,7 @@ class BookManager:
             connection.close()
     #0 首先會有三本書
     def select_book(self):
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='asd851216', database='libary')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='******', database='libary')
         cursor = connection.cursor()
         try:
             with connection.cursor() as cursor:
@@ -116,7 +116,7 @@ class BookManager:
         # 傳入引數，建立Book類範例new_book 
         # self.books.append(new_book)
         # 將new_book新增到列表books裡
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='asd851216', database='libary')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='******', database='libary')
 
         cursor = connection.cursor()
         try:
@@ -143,7 +143,7 @@ class BookManager:
         del_author =  input('請輸入作者名稱：')
         del_year = input('請輸入書籍年份：')
 
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='asd851216', database='libary')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='******', database='libary')
 
         cursor = connection.cursor()
         try:
@@ -172,7 +172,7 @@ class BookManager:
         # new_year=int(new_year)
         if new_author != '':
             print('更新中')
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='asd851216', database='libary')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='******', database='libary')
         
         cursor = connection.cursor()
         try:
@@ -213,7 +213,7 @@ class BookManager:
         upre_review = input('請寫下閱讀心得：')
         # 獲取書籍相應資訊，賦值給屬性
 
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='asd851216', database='libary')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='******', database='libary')
 
         cursor = connection.cursor()
         try:
@@ -259,7 +259,7 @@ class BookManager:
             print('請完整提供書名/作者/年份') 
             return None
 
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='asd851216', database='libary')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='******', database='libary')
         cursor = connection.cursor()     
 
 
@@ -300,7 +300,7 @@ class BookManager:
         del_name = input('請輸入要刪除的書籍名稱：')
         del_author =  input('請輸入要刪除的作者名稱：')
         del_year = input('請輸入要刪除的書籍年份：')
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='asd851216', database='libary')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='******', database='libary')
         cursor = connection.cursor()     
 
         with connection.cursor() as cursor:
@@ -346,7 +346,7 @@ class BookManager:
             connection.close()   
     #5  使⽤者可以篩選出同個作者的書籍列表
     def select_author (self):
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='asd851216', database='libary')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='******', database='libary')
         cursor = connection.cursor()
         re_author=input('請輸入要找的作者')
         if re_author == '':
@@ -373,7 +373,7 @@ class BookManager:
             # 關閉連接
             connection.close()
     def desc_author (self):
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='asd851216', database='libary')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='******', database='libary')
         cursor = connection.cursor()
         try:
             with connection.cursor() as cursor:
@@ -394,7 +394,7 @@ class BookManager:
             # 關閉連接
             connection.close()              
     def orderby_author (self):
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='asd851216', database='libary')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='******', database='libary')
         cursor = connection.cursor()
         try:
             with connection.cursor() as cursor:
@@ -415,7 +415,7 @@ class BookManager:
             # 關閉連接
             connection.close()   
     def desc_year (self):
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='asd851216', database='libary')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='******', database='libary')
         cursor = connection.cursor()
         try:
             with connection.cursor() as cursor:
@@ -436,7 +436,7 @@ class BookManager:
             # 關閉連接
             connection.close()  
     def orderby_year (self):
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='asd851216', database='libary')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='******', database='libary')
         cursor = connection.cursor()
         try:
             with connection.cursor() as cursor:
@@ -458,7 +458,7 @@ class BookManager:
             connection.close()  
     # 使用者可以透過關鍵字在書名欄位中搜尋,找到他們要找的書籍
     def regex_search (self):
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='asd851216', database='libary')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='******', database='libary')
         cursor = connection.cursor()
 
         con=0
