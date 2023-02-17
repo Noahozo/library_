@@ -40,10 +40,10 @@ urlpatterns = [
     path('index_search/', views.index_search), #搜尋作者
     path('searchauthor/',views.select_author), #作者呈現畫面
 
-    path('orderby_a_y/',views.orderby_a_y), #作者呈現畫面
-    path('desc_a_y/',views.desc_a_y), #作者呈現畫面
+    path('orderby_a_y/',views.orderby_a_y), #搜尋書本依照作者年份升冪
+    path('desc_a_y/',views.desc_a_y), #搜尋書本依照作者年份降冪
 
-    path('index_regex/', views.index_regex), #搜尋作者
+    path('index_regex/', views.index_regex), #關鍵字搜尋
     path('regex_search/',views.regex_search), #作者呈現畫面
 
     path('wrong/', views.wrong), # 資料不齊全頁面
