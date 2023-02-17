@@ -28,6 +28,6 @@
 並到MYSQL資料夾內依照步驟創建資料庫後建立表格
 
 接著進入Library資料夾後打開terminal 
-輸入python manage.py runserver 啟動D
+輸入python manage.py runserver 啟動Django
 
 ```
