@@ -22,10 +22,12 @@
 -----
 
 ### 執行方式
+
+```
 請先安裝上述使用環境
+並到MYSQL資料夾內依照步驟創建資料庫後建立表格
 
-進入Library資料夾後輸入 
+接著進入Library資料夾後打開terminal 
+輸入python manage.py runserver 啟動D
 
-打開terminal 輸入python manage.py runserver 
-
-
+```
