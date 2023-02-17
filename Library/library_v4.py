@@ -1,7 +1,7 @@
 import pymysql
 
 usr='root'
-pwd='asd851216'
+pwd='******'
 db='libary'
 
 
