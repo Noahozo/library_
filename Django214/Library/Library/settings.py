@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',  #因為你用的是MySQL
         'NAME': 'libary',
         'USER': 'root',  #這裡用最高權限管理員
-        'PASSWORD': 'asd851216',  #你的密碼
+        'PASSWORD': '******',  #你的密碼
         'HOST': 'localhost',  #空白預設為localhost
         'PORT': '3306',  #空白預設為DB port
     }
