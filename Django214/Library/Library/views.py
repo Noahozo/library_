@@ -4,7 +4,7 @@ import pymysql
 import pandas as pd 
 # from webapp import models
 usr='root'
-pwd='asd851216'
+pwd='******'
 db='libary'
 
 
@@ -13,29 +13,19 @@ def f_add_book(self):
     new_author =  input('請輸入作者名稱：')
     new_year = input('請輸入書籍年份：')
     new_review = input('請輸入閱讀心得：(如未看過請填寫無)')
-    # 獲取書籍相應資訊，賦值給屬性
-    # new_book = Book(new_name, new_author, new_year,new_review)
-
-    # 傳入引數，建立Book類範例new_book 
-    # self.books.append(new_book)
-    # 將new_book新增到列表books裡
     connection = pymysql.connect(host='localhost', port=3306, user=usr, password=pwd, database=db)
     cursor = connection.cursor()
     try:
         with connection.cursor() as cursor:
-            # 建立 SQL 語句
             if new_review == '無' or None:
                 sql = 'INSERT INTO books (name, author, year) VALUES ("%s", "%s", "%s");'\
                 % (new_name, new_author, new_year)
             else:
                 sql = 'INSERT INTO books (name, author, year,review) VALUES ("%s", "%s", "%s", "%s");'\
                     % (new_name, new_author, new_year, new_review)
-            # 執行 SQL 語句
             cursor.execute(sql)
-        # 提交變更
         connection.commit()
     finally:
-        # 關閉連接
         connection.close()
 
     print('書籍錄入成功！')
@@ -46,6 +36,9 @@ def index(request):
     return render(request, 'index.html')
 def index_del(request):
     return render(request, 'index_del.html')
+def index_update(request):
+    return render(request, 'index_update.html')
+
 def addreview(request):
     return render(request, 'index_review.html')
 def resreview(request):
@@ -54,8 +47,6 @@ def delreview(request):
     return render(request, 'index_delreview.html')
 def wrong(request):
     return render(request, 'wrong.html')
-def index_update(request):
-    return render(request, 'index_update.html')
 def index_search(request):
     return render(request, 'index_search.html')
 def index_regex(request):
@@ -74,19 +65,15 @@ def add_book(request):
 
     try:
         with connection.cursor() as cursor:
-            # 建立 SQL 語句
             if bookreview == '無' or None:
                 sql = 'INSERT INTO books (name, author, year) VALUES ("%s", "%s", "%s");'\
                 % (bookname, authorname, year)
             else:
                 sql = 'INSERT INTO books (name, author, year,review) VALUES ("%s", "%s", "%s", "%s");'\
                     % (bookname, authorname, year, bookreview)
-            # 執行 SQL 語句
             cursor.execute(sql)
-        # 提交變更
         connection.commit()
     finally:
-        # 關閉連接
         connection.close()
     return render(request, 'addbook.html')
 
@@ -106,15 +93,11 @@ def delete_book(request):
 
     try:
         with connection.cursor() as cursor:
-            # 建立 SQL 語句
             sql = 'DELETE FROM books WHERE name="%s" AND year= "%s" AND author="%s" '\
                 % (del_name,del_year,del_author)
-            # 執行 SQL 語句
             cursor.execute(sql)
-        # 提交變更
         connection.commit()
     finally:
-        # 關閉連接
         connection.close()
 
     return render(request, 'delbook.html')
@@ -144,11 +127,8 @@ def update_book(request):
                     % (new_name,new_author,new_year,bname,bauthor,byear)
                 cursor.execute(sql1)
                 print(sql1)   
-            # 執行 SQL 語句
-        # 提交變更
         connection.commit()
     finally:
-        # 關閉連接
         connection.close()
     if (new_name==bname) and (new_author==bauthor) and (new_year==byear):
         return render(request, 'wrong.html')
@@ -169,7 +149,6 @@ def add_review(request):
 
     try:
         with connection.cursor() as cursor:
-            # 建立 SQL 語句
             if upre_review == '' or None :
                 print('心得內容不得為空') 
                 return render(request, 'wrong.html')
@@ -186,13 +165,10 @@ def add_review(request):
                 else:
                     sql = 'UPDATE books SET review="%s" WHERE name="%s" AND author="%s" AND year="%s";'\
                         % (upre_review,upre_name,upre_author,upre_year)  
-            # 執行 SQL 語句
             print(sql)
             cursor.execute(sql)
-        # 提交變更
         connection.commit()
     finally:
-        # 關閉連接
         connection.close()
         
     if upre_review =='':
@@ -227,10 +203,8 @@ def res_review(request):
             cursor.execute(sql2)
 
         connection.commit()
-        # 索取心得
 
     finally:
-        # 關閉連接
         connection.close()   
     return render(request, 'resreview.html')
 
@@ -302,11 +276,6 @@ def select_author (request):
                 bauthor_l.append(bauthor)
                 byear_l.append(byear)
                 breview_l.append(breview)
-                
-                # print ('''書名：《%s》
-                #         作者：%s 
-                #         年份：%s 
-                #         心得：%s '''    %(bname,bauthor,byear,breview))
             df=pd.DataFrame(
 
                 {'name':bname_l,
@@ -317,14 +286,9 @@ def select_author (request):
 
             )
             all={"df":df}
-            # print(bname_l,bauthor_l)
-            # print('*******************************************')
-            # print('df在這裡',df.shape)
-            # print('all在這:',all)
-        # 提交變更
+
         connection.commit()
     finally:
-        # 關閉連接
         connection.close()
         return render(request, 'searchauthor.html',context=all)
 def orderby_a_y (request):
@@ -348,11 +312,6 @@ def orderby_a_y (request):
                 bauthor_l.append(bauthor)
                 byear_l.append(byear)
                 breview_l.append(breview)
-                # print(bname,bauthor,byear,breview)
-                # print ('''書名：《%s》
-                #         作者：%s 
-                #         年份：%s 
-                #         心得：%s '''    %(bname,bauthor,byear,breview))
             df=pd.DataFrame(
 
                 {'name':bname_l,
@@ -388,11 +347,6 @@ def desc_a_y (request):
                 bauthor_l.append(bauthor)
                 byear_l.append(byear)
                 breview_l.append(breview)
-                # print(bname,bauthor,byear,breview)
-                # print ('''書名：《%s》
-                #         作者：%s 
-                #         年份：%s 
-                #         心得：%s '''    %(bname,bauthor,byear,breview))
             df=pd.DataFrame(
 
                 {'name':bname_l,
@@ -425,11 +379,6 @@ def regex_search (request):
             for row in results:
                 bname = row[0]
                 bname_l.append(bname)
-                # print(bname,bauthor,byear,breview)
-                # print ('''書名：《%s》
-                #         作者：%s 
-                #         年份：%s 
-                #         心得：%s '''    %(bname,bauthor,byear,breview))
             df=pd.DataFrame(
 
                 {'name':bname_l,
