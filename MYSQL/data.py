@@ -2,7 +2,7 @@ import pymysql
 
 usr='root'
 pwd='******'
-db='libary'
+db='******'
 
 connection = pymysql.connect(host='localhost', port=3306, user=usr, password=pwd, database=db)
 cursor = connection.cursor()
@@ -19,7 +19,7 @@ cursor.execute("DROP TABLE IF EXISTS books")
 try:
     with connection.cursor() as cursor:
         # 建立 SQL 語句
-        sql = """CREATE TABLE `books` (
+        sql = """CREATE TABLE `******` (
                 `name` char(20) NOT NULL,
                 `author` char(20),
                 `year` int(10),
