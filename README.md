@@ -33,3 +33,31 @@
 輸入python manage.py runserver 啟動Django
 
 ```
+
+### 雲端佈署
+
+作品有放上google cloud engine
+可輸入網址查看
+```
+1. 新增書本：
+http://34.80.25.94:8000/index/
+2. 刪除書本：
+http://34.80.25.94:8000/index_del/
+3. 修改書本：
+http://34.80.25.94:8000/index_update/
+4. 新增心得：
+http://34.80.25.94:8000/index_review/
+5. 修改心得：
+http://34.80.25.94:8000/index_res/
+6. 刪除心得：
+http://34.80.25.94:8000/index_delreview/
+7. 篩選作者：
+http://34.80.25.94:8000/index_search/
+8. 依照年份、作者 降冪：
+http://34.80.25.94:8000/desc_a_y/
+9. 依照年份、作者 升冪：
+http://34.80.25.94:8000/orderby_a_y/
+10. 關鍵字搜尋：
+http://34.80.25.94:8000/index_regex/
+
+```
